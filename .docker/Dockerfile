@@ -18,3 +18,7 @@ RUN chmod +x /usr/local/bin/install-php-extensions
 
 # Install PHP Extensions
 RUN install-php-extensions gd intl mysqli zip bcmath intl ldap @composer
+
+COPY .docker/start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
+ENTRYPOINT ["/usr/local/bin/start.sh"]

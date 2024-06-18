@@ -7,6 +7,7 @@ services:
             - 8888:80
         volumes:
             - .:/var/www/html
+        command: /usr/local/bin/start.sh
 
     soketi:
         image: "quay.io/soketi/soketi:latest-16-alpine"
