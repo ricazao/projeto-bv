@@ -2,11 +2,18 @@
 
 namespace App\Providers;
 
+use App\Services\Integracao\Contracts\DataReader;
+use App\Services\Integracao\DataReaders\FileDataReader;
 use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+    public function register(): void
+    {
+        $this->app->bind(DataReader::class, FileDataReader::class);
+    }
+
     public function boot(): void
     {
         $this->setupCarbon();

@@ -15,8 +15,3 @@ window.Echo = new Echo({
     forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? "https") === "https",
     enabledTransports: ["ws", "wss"],
 });
-
-window.Echo.channel("user-register")
-    .listen("UserRegistered", (e) => console.log("UserRegistered", e))
-    .listen("pusher:ping", (e) => console.log("pusher:ping", e))
-    .listen("pusher:pong", (e) => console.log("pusher:pong", e));
